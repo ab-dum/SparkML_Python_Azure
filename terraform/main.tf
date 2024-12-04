@@ -1,13 +1,25 @@
 # Setup azurerm as a state backend
 terraform {
   backend "azurerm" {
+    resource_group_name  = "sparkml"                   
+    storage_account_name = "sparkmlstorage"            
+    container_name       = "terraform-state"            
+    key                  = "terraform.tfstate"         
+    access_key           = "your_access_key" # Access Key
   }
 }
+
+
 
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
   features {}
+  client_id       = "your_client_id"
+  tenant_id       = "your_client_id"
+  subscription_id = "your_client_id"
+  client_secret   = "your_client_id"
 }
+
 
 data "azurerm_client_config" "current" {}
 
@@ -16,7 +28,7 @@ resource "azurerm_resource_group" "bdcc" {
   location = var.LOCATION
 
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
   }
 
   tags = {
@@ -42,7 +54,7 @@ resource "azurerm_storage_account" "bdcc" {
   }
 
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
   }
 
   tags = {
@@ -59,7 +71,7 @@ resource "azurerm_storage_data_lake_gen2_filesystem" "gen2_data" {
   storage_account_id = azurerm_storage_account.bdcc.id
 
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
   }
 }
 
