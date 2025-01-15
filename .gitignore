@@ -14,3 +14,4 @@ dist/
 build/
 ### Mac ###
 .DS_Store
+terraform/.terraform/providers/
