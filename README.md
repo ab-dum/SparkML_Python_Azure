@@ -627,7 +627,7 @@ To remove all resources created by this Terraform configuration, execute:
 ```bash
 terraform destroy
 ```
-
+![Azure Resources Created](Screenshots/Screenshot_14.png)
 ### Conclusion
 
 This project demonstrated the process of deploying a machine learning model on Databricks and configuring it for serving predictions. Key steps included setting up the Databricks cluster, integrating the model with MLflow, and establishing secure access with appropriate tokens. Challenges such as handling authentication issues, managing compute resources, and ensuring that the model serving endpoint was properly configured were addressed.
@@ -635,4 +635,3 @@ This project demonstrated the process of deploying a machine learning model on D
 Additionally, using Terraform for infrastructure as code allowed us to efficiently manage and deploy cloud resources on Azure, ensuring that the environment was consistently set up according to project requirements. By automating resource provisioning and configuration, we improved reproducibility and reduced manual overhead.
 
 Ultimately, this project served as a comprehensive exercise in cloud-based model deployment, offering valuable insights into the best practices for scaling machine learning solutions and managing cloud infrastructure effectively.
-
